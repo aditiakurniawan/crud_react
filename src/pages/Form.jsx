@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import MahasiswaService from "../services/MahasiswaService";
 
 export default function Form() {
@@ -12,7 +12,6 @@ export default function Form() {
   const [mahasiswa, setMahasiswa] = useState(initialMahasiswaState);
   const [submitted, setSubmitted] = useState(false);
   const { id } = useParams();
-  const navigate = useNavigate();
 
   const getMahasiswa = (id) => {
     MahasiswaService.getMahasiswaById(id)
@@ -50,8 +49,6 @@ export default function Form() {
           tanggal_lahir: response.data.tanggal_lahir,
         });
         setSubmitted(true);
-        console.log(response.data);
-        navigate("/mahasiswa");
       })
       .catch((e) => {
         console.log(e);

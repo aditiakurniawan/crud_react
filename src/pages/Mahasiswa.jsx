@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import MahasiswaService from "../services/MahasiswaService";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DataContext } from "../context/DataContext";
 
 export default function Mahasiswa() {
-  const [mahasiswa, setMahasiswa] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { mahasiswa, setMahasiswa, loading, setLoading } =
+    useContext(DataContext);
   const [search, setSearch] = useState("");
+  // const [mahasiswa, setMahasiswa] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
