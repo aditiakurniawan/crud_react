@@ -71,7 +71,7 @@ export default function Mahasiswa() {
           </h4>
         </div>
       ) : (
-        <main className="min-h-screen md:px-10">
+        <main className="min-h-screen md:px-10 px-2">
           <div>
             <div className="py-5 text-center">
               <h1 className="font-extrabold text-4xl">Mahasiswa</h1>
@@ -95,7 +95,7 @@ export default function Mahasiswa() {
               </div>
 
               <div className="row  mx-auto">
-                <table className="w-full min-h-60 text-center">
+                <table className="w-full sm:min-h-60 min-h-full text-center text-xs md:text-base ">
                   <thead>
                     <tr>
                       <th>No</th>
@@ -114,7 +114,7 @@ export default function Mahasiswa() {
                         <td>
                           <Link
                             to={`/mahasiswa/${mahasiswa.id}`}
-                            className="bg-yellow-500 text-white px-3 py-1 mx-1"
+                            className="bg-yellow-500 text-white px-5 py-1 mx-1 mb-2"
                           >
                             Edit
                           </Link>
