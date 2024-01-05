@@ -8,8 +8,6 @@ export default function Mahasiswa() {
   const { mahasiswa, setMahasiswa, loading, setLoading } =
     useContext(DataContext);
   const [search, setSearch] = useState("");
-  // const [mahasiswa, setMahasiswa] = useState([]);
-  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,6 +27,14 @@ export default function Mahasiswa() {
     await MahasiswaService.deleteMahasiswa(id).then((res) => {
       setMahasiswa(mahasiswa.filter((mahasiswa) => mahasiswa.id !== id));
       console.log(res.data);
+    });
+  };
+
+  const dateFormat = (date) => {
+    return new Date(date).toLocaleDateString("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
     });
   };
 
@@ -65,7 +71,7 @@ export default function Mahasiswa() {
           </h4>
         </div>
       ) : (
-        <main className="min-h-screen">
+        <main className="min-h-screen md:px-10">
           <div>
             <div className="py-5 text-center">
               <h1 className="font-extrabold text-4xl">Mahasiswa</h1>
@@ -103,11 +109,7 @@ export default function Mahasiswa() {
                       <tr key={mahasiswa.id}>
                         <td> {mahasiswa.id} </td>
                         <td> {mahasiswa.name} </td>
-                        <td>
-                          {mahasiswa.tanggal_lahir.toLocaleString("id-ID", {
-                            timeZone: "Asia/Jakarta",
-                          })}
-                        </td>
+                        <td>{dateFormat(mahasiswa.tanggal_lahir)}</td>
                         <td> {mahasiswa.alamat}</td>
                         <td>
                           <Link

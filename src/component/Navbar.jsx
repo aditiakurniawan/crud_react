@@ -6,7 +6,7 @@ export default function Navbar() {
   const { loading, setLoading } = useContext(DataContext);
   return (
     <nav className="bg-black border-b-2 border-gray-800">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className=" sm:max-w-full md:max-w-2xl lg:max-w-7xl xl:max-w-screen 2xl:w-screen-2xl mx-auto px-4">
         <div className="flex justify-between">
           <div className="flex space-x-4">
             <div className="hidden md:flex items-center space-x-1">

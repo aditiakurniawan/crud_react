@@ -12,7 +12,6 @@ const DataProvider = ({ children }) => {
       await MahasiswaService.getMahasiswa().then((res) => {
         setMahasiswa(res.data);
         setLoading(false);
-        console.log(loading);
       });
     } catch (error) {
       console.log(error);

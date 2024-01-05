@@ -17,7 +17,6 @@ export default function Form() {
     MahasiswaService.getMahasiswaById(id)
       .then((response) => {
         setMahasiswa(response.data);
-        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -40,6 +39,14 @@ export default function Form() {
       tanggal_lahir: mahasiswa.tanggal_lahir,
     };
 
+    if (
+      mahasiswa.name === "" ||
+      mahasiswa.alamat === "" ||
+      mahasiswa.tanggal_lahir === ""
+    ) {
+      alert("Input Tidak Boleh Kosong");
+      return;
+    }
     MahasiswaService.createMahasiswa(data)
       .then((response) => {
         setMahasiswa({
@@ -97,7 +104,7 @@ export default function Form() {
       ) : (
         <div>
           <div className="form w-1/2 mx-auto h-screen flex flex-col justify-center items-start gap-3 p-1">
-            <h1 className="font-extrabold text-4xl text-center mb-5">
+            <h1 className="font-extrabold md:text-2xl lg:text-4xl mx-auto mb-5">
               {id ? "Edit" : "Tambah"} Data Mahasiswa
             </h1>
             <label htmlFor="name">Name</label>

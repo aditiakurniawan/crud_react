@@ -14,7 +14,7 @@ export default function Home() {
           {loading ? (
             <h1 className="font-extrabold text-4xl ">Loading ...</h1>
           ) : (
-            <h1 className="font-extrabold text-4xl ">
+            <h1 className="font-extrabold md:text-4xl sm:text-sm">
               Jumlah Mahasiswa : {mahasiswa.length}
             </h1>
           )}
